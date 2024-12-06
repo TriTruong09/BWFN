@@ -23,11 +23,14 @@ function AdminProducts() {
       useState (false);
       const [formData,setFormData] = useState(initialFormData);
       const [imageFile,setImageFile] = useState(null);
-      const [uploadedImageUrl,setUploadImageUrl] = useState('');
+      const [uploadedImageUrl,setUploadImageUrl] = useState("");
+      const [imageLoadingState, setImageLoadingState] = useState(false);
 
-      function onSubmit(){
+      function onSubmit(){}
 
-      }
+        console.log(formData,"formData");
+
+      
 
     return <Fragment>
       <div className="mb-5 w-full flex justify-end">
@@ -50,7 +53,9 @@ function AdminProducts() {
           imageFile ={imageFile} 
           setImageFile ={setImageFile} 
           uploadedImageUrl={uploadedImageUrl} 
-          setUploadImageUrl={setUploadImageUrl} />
+          setUploadImageUrl={setUploadImageUrl} 
+          setImageLoadingState ={setImageLoadingState}
+          />
           <div className="py-6">
             <CommonForm onSubmit={onSubmit} formData={formData} setFormData={setFormData} buttonText='Add'
             formControls={addProductFormElements}
