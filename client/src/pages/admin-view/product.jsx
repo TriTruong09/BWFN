@@ -13,6 +13,7 @@ import {
 } from "@/store/admin/products-slice";
 import { data } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import AdminProductTile from "@/components/admin-view/product-tile";
 
 
 const initialFormData = {
@@ -69,7 +70,12 @@ function AdminProducts() {
       <div className="mb-5 w-full flex justify-end">
         <Button onClick={()=>setOpenCreateProductsDialog(true)}>Add New Product</Button>
       </div>
-      <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4"></div>
+      <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {
+          productList && productList.length > 0 ?
+          productList.map(productItem=><AdminProductTile product={productItem}/>) : null
+        }
+      </div>
       <Sheet 
         open={openCreateProductDialog} 
         onOpenChange={()=>{
