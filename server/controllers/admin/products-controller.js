@@ -104,7 +104,7 @@ const editProduct = async (req, res) =>{
           //averageReview,
         } = req.body;
 
-        const findProduct = await Product.findById(id);
+        let findProduct = await Product.findById(id);
         if (!findProduct)
             return res.status(404).json({
                 success: false,

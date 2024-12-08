@@ -10,7 +10,14 @@ import {
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button"; // Thêm Button nếu thiếu
 
-function CommonForm({ formControls, formData, setFormData, onSubmit, buttonText, isBtnDisabled }) {
+function CommonForm({ 
+  formControls, 
+  formData, 
+  setFormData, 
+  onSubmit, 
+  buttonText, 
+  isBtnDisabled 
+  }) {
   // Chú ý destructuring từ props
 
   function renderInputByComponentType(getControlItem) {
