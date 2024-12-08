@@ -103,3 +103,46 @@ export const loginFormControls = [
       placeholder: "Enter total stock",
     },
   ];
+
+  export const shoppingViewHeaderMenuItems = [
+    {
+      id: "home",
+      label: "Trang chủ",
+      path: "/shop/home",
+    },
+    {
+      id: "products",
+      label: "Sản phẩm",
+      path: "/shop/listing",
+    },
+    {
+      id: "racket",
+      label: "Vợt cầu lông",
+      path: "/shop/listing",
+    },
+    {
+      id: "shoes",
+      label: "Giày cầu lông",
+      path: "/shop/listing",
+    },
+    {
+      id: "tshirt",
+      label: "Áo cầu lông",
+      path: "/shop/listing",
+    },
+    {
+      id: "short",
+      label: "Quần cầu lông",
+      path: "/shop/listing",
+    },
+    {
+      id: "accessory",
+      label: "Phụ kiện cầu lông",
+      path: "/shop/listing",
+    },
+    {
+      id: "search",
+      label: "Tìm kiếm",
+      path: "/shop/search",
+    },
+  ];
