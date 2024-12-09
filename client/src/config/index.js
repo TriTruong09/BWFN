@@ -164,20 +164,21 @@ export const loginFormControls = [
   };
 
   export const filterOptions = {
-    "Sản phẩm": [
+    "category": [
       { id: "racket", label: "Vợt cầu lông" },
       { id: "shoes", label: "Giày cầu lông" },
       { id: "tshirt", label: "Áo cầu lông" },
       { id: "short", label: "Quần cầu lông" },
       { id: "accessory", label: "Phụ kiện cầu lông" },
     ],
-    "Thương hiệu": [
+    "brand": [
       { id: "yonex", label: "Yonex" },
       { id: "linning", label: "Lining" },
       { id: "mizuno", label: "Mizuno" },
       { id: "victor", label: "Victor" },
       { id: "kamito", label: "Kamito" },
     ],
+    //add ở đây thêm be 
   };
   
   export const sortOptions = [

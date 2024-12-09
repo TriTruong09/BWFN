@@ -40,10 +40,11 @@ function ShoppingListing() {
 
     function handleFilter(getSectionId,getCurrentOption){
         console.log(getSectionId,getCurrentOption);
-
+        
         let cpyFilters = {...filters};
+        console.log("cpy*****************************",cpyFilters);
         const indexOfCurrentSection = Object.keys(cpyFilters).indexOf(getSectionId);
-
+        console.log("current%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%",indexOfCurrentSection);
         if (indexOfCurrentSection === -1) {
             cpyFilters = {
               ...cpyFilters,
@@ -66,18 +67,20 @@ function ShoppingListing() {
         setSort("price-lowtohigh");
         setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
       }, []);
-
-    useEffect(() => {
+    
+      useEffect(() => {
         if (filters && Object.keys(filters).length > 0) {
           const createQueryString = createSearchParamsHelper(filters);
           setSearchParams(new URLSearchParams(createQueryString));
         }
       }, [filters]);
-
-    useEffect(()=>{
-        if(filters !== null && sort !== null)
-        dispatch(fetchAllFilteredProducts({filterParams : filters, sortParams : sort}))
-    },[dispatch, sort, filters])
+    
+      useEffect(() => {
+        if (filters !== null && sort !== null)
+          dispatch(
+            fetchAllFilteredProducts({ filterParams: filters, sortParams: sort })
+          );
+      }, [dispatch, sort, filters]);
 
     console.log(filters,searchParams,toString(), 'filters');
 
