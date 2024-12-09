@@ -146,3 +146,46 @@ export const loginFormControls = [
       path: "/shop/search",
     },
   ];
+
+  export const categoryOptionsMap = {
+    racket: "Vợt cầu lông",
+    shoes: "Giày cầu lông",
+    tshirt: "Áo cầu lông",
+    short: "Quần cầu lông",
+    accessory: "Phụ kiện cầu lông",
+  };
+
+  export const brandOptionsMap = {
+    yonex: "Yonex",
+    lining: "Lining",
+    mizuno: "Mizuno",
+    victor: "Victor",
+    kamito: "Kamito",
+  };
+
+  export const filterOptions = {
+    "Sản phẩm": [
+      { id: "racket", label: "Vợt cầu lông" },
+      { id: "shoes", label: "Giày cầu lông" },
+      { id: "tshirt", label: "Áo cầu lông" },
+      { id: "short", label: "Quần cầu lông" },
+      { id: "accessory", label: "Phụ kiện cầu lông" },
+    ],
+    "Thương hiệu": [
+      { id: "yonex", label: "Yonex" },
+      { id: "linning", label: "Lining" },
+      { id: "mizuno", label: "Mizuno" },
+      { id: "victor", label: "Victor" },
+      { id: "kamito", label: "Kamito" },
+    ],
+  };
+  
+  export const sortOptions = [
+    { id: "price-lowtohigh", label: "Giá tăng dần" },
+    { id: "price-hightolow", label: "Giá giảm dần" },
+    //{ id: "title-atoz", label: "Title: A to Z" },
+    //{ id: "title-ztoa", label: "Title: Z to A" },
+  ];
+
+  
+  
