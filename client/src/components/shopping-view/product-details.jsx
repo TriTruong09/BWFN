@@ -4,13 +4,41 @@ import { Button } from "../ui/button";
 import { Dialog, DialogContent } from "../ui/dialog";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
+import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "../ui/use-toast";
+import { setProductDetails } from "@/store/shop/products-slice";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
-    // Phân tách mô tả thành từng mục (giả sử chuỗi được phân cách bằng dấu "-")
+
+    const dispatch = useDispatch() ;
+    const {user} = useSelector(state=>state.auth);
+    const {toast} = useToast();
+
+    function handleAddtoCart(getCurrentProductId, getTotalStock) {
+        console.log(getCurrentProductId, getTotalStock);
+        dispatch(addToCart({
+          userId : user.id, 
+          productId: getCurrentProductId, 
+          quantity: 1,
+        })
+        ).then(data=> {
+          dispatch(fetchCartItems(user?.id));
+          toast({
+            title: "Đã thêm vào giỏ hàng",
+          });
+        });
+      }
+
+    
     const descriptionItems = productDetails?.description?.split(" - ") || [];
 
+    function handleDialogClose(){
+        setOpen(false);
+        dispatch(setProductDetails());
+    }
+
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={open} onOpenChange={handleDialogClose}>
             <DialogContent className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:p-12 max-w-[90vw] sm:max-w-[80vw] lg:max-w-[70vw]">
                 {/* Hình ảnh sản phẩm */}
                 <div className="relative overflow-hidden rounded-lg">
@@ -64,32 +92,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                         <span className="text-muted-foreground">(4.5)</span>
                     </div>
                     <div className="mt-5">
-                        <Button className="w-full">Thêm vào giỏ hàng</Button>
+                        <Button className="w-full" conClick={()=>handleAddToCart(productDetails?._id)}>Thêm vào giỏ hàng</Button>
                     </div>
                     <Separator />
                     <div className="max-h-[300px] overflow-auto">
                         <h2 className="text-xl font-bold mb-4">Đánh giá sản phẩm</h2>
                         <div className="grid gap-6">
-                            <div className="flex gap-4">
-                                <Avatar className="w-10 h-10 border">
-                                    <AvatarFallback>
-                                        hihi
-                                    </AvatarFallback>
-                                </Avatar>
-                                <div className="grid gap-1">
-                                    <div className="flex items-center gap-2">
-                                        <h3 className="font-bold">Tri Truong</h3>
-                                    </div>
-                                    <div className="flex items-center gap-0.5">
-                                        <StarIcon className="w-5 h-5 fill-primary text-yellow-500" />
-                                        <StarIcon className="w-5 h-5 fill-primary text-yellow-500" />
-                                        <StarIcon className="w-5 h-5 fill-primary text-yellow-500" />
-                                        <StarIcon className="w-5 h-5 fill-primary text-yellow-500" />
-                                        <StarIcon className="w-5 h-5 fill-primary text-yellow-500" />
-                                    </div>
-                                    <p className="text-muted-foreground">Toẹt vời</p>
-                                </div>
-                            </div>
+                            
                             <div className="flex gap-4">
                                 <Avatar className="w-10 h-10 border">
                                     <AvatarFallback>

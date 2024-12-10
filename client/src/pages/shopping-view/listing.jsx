@@ -71,7 +71,7 @@ function ShoppingListing() {
 
     function handleGetProductDetails(getCurrentProductId){
       console.log(getCurrentProductId)
-      dispatch(fetchProductDetails(getCurrentProductId))
+      dispatch(fetchProductDetails(getCurrentProductId));
     }
 
     function handleAddtoCart(getCurrentProductId, getTotalStock) {
@@ -82,10 +82,12 @@ function ShoppingListing() {
         quantity: 1,
       })
       ).then(data=> {
+        if(data?.payload?.success){
         dispatch(fetchCartItems(user?.id));
         toast({
           title: "Đã thêm vào giỏ hàng",
         });
+      }
       });
     }
 
