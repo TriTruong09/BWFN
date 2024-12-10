@@ -188,5 +188,42 @@ export const loginFormControls = [
     //{ id: "title-ztoa", label: "Title: Z to A" },
   ];
 
+  export const addressFormControls = [
+    {
+      label: "Địa chỉ",
+      name: "address",
+      componentType: "input",
+      type: "text",
+      placeholder: "Nhập địa chỉ của bạn",
+    },
+    {
+      label: "Thành phố",
+      name: "city",
+      componentType: "input",
+      type: "text",
+      placeholder: "Nhập thành phố của bạn",
+    },
+    {
+      label: "Mã pin",
+      name: "pincode",
+      componentType: "input",
+      type: "text",
+      placeholder: "Nhập mã pin của bạn",
+    },
+    {
+      label: "Số điện thoại",
+      name: "phone",
+      componentType: "input",
+      type: "text",
+      placeholder: "Nhập số điện thoại của bạn",
+    },
+    {
+      label: "Ghi chú",
+      name: "notes",
+      componentType: "textarea",
+      placeholder: "Nhập ghi chú bổ sung",
+    },
+  ];
+
   
   
