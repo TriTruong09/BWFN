@@ -1,7 +1,7 @@
 import Address from "@/components/shopping-view/address";
-import Orders from "@/components/shopping-view/orders";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import accImg from "../../assets/banner-6.jpg";
+import ShoppingOrders from "@/components/shopping-view/orders";
 //import Address from "@/components/shopping-view/address";
 //import ShoppingOrders from "@/components/shopping-view/orders";
 
@@ -22,7 +22,7 @@ function ShoppingAccount() {
               <TabsTrigger value="address">Địa chỉ</TabsTrigger>
             </TabsList>
             <TabsContent value="orders">
-             <Orders/>
+              <ShoppingOrders/>
             </TabsContent>
             <TabsContent value="address">
               <Address/>

@@ -1,18 +1,19 @@
-import { useState } from "react";
-import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Dialog } from "../ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
-import ShoppingOrderDetailsView from "./order-detail";
+import { Button } from "../ui/button";
+import { Dialog } from "../ui/dialog";
+import { useState } from "react";
+import AdminOrderDetailsView from "./order-details";
 
-function ShoppingOrders() {
 
-const[openDetailsDialog,setOpenDetailsDialog] = useState(false)
+function AdminOrdersView() {
+
+    const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
 
     return ( 
     <Card>
         <CardHeader>
-            <CardTitle>Lịch sử đặt hàng</CardTitle>
+            <CardTitle>Đơn hàng</CardTitle>
         </CardHeader>
         <CardContent>
             <Table>
@@ -35,8 +36,10 @@ const[openDetailsDialog,setOpenDetailsDialog] = useState(false)
                         <TableCell>10 củ</TableCell>
                         <TableCell>
                             <Dialog open={openDetailsDialog} onOpenChange={setOpenDetailsDialog}>
-                            <Button onClick={()=>setOpenDetailsDialog(true)}>Xem chi tiết đơn hàng</Button>
-                            <ShoppingOrderDetailsView/>
+                            <Button onClick={()=>setOpenDetailsDialog(true)}>
+                                Xem chi tiết đơn hàng
+                            </Button>
+                            <AdminOrderDetailsView/>
                             </Dialog>
                         </TableCell>
                     </TableRow>
@@ -44,8 +47,8 @@ const[openDetailsDialog,setOpenDetailsDialog] = useState(false)
             </Table>
         </CardContent>
     </Card>
-        
+
      );
 }
 
-export default ShoppingOrders;
+export default AdminOrdersView;
