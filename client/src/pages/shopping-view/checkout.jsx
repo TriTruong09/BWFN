@@ -17,6 +17,9 @@ function ShoppingCheckout() {
   const dispatch = useDispatch();
   const { toast } = useToast();
 
+  //console.log("CartItems State: ", cartItems);
+
+
   
 
   console.log(currentSelectedAddress, "cartItems");
@@ -84,7 +87,7 @@ function ShoppingCheckout() {
     };
 
     dispatch(createNewOrder(orderData)).then((data) => {
-      console.log(data, "sangam");
+      console.log(data, "TriTruong");
       if (data?.payload?.success) {
         setIsPaymemntStart(true);
       } else {

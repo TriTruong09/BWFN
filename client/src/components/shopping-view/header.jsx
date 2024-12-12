@@ -23,7 +23,11 @@ function MenuItems(){
 
     function handleNavigate(getCurrentMenuItem){
         sessionStorage.removeItem('filters')
-        const currentFilter = getCurrentMenuItem.id !== 'home' ? 
+        const currentFilter = 
+            getCurrentMenuItem.id !== "home" &&
+            getCurrentMenuItem.id !== "products" &&
+            getCurrentMenuItem.id !== "search" ? 
+
         {
             category : [getCurrentMenuItem.id]
         } : null

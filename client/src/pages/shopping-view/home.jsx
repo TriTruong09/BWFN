@@ -4,7 +4,7 @@ import bannerTwo from '../../assets/banner-2.webp';
 import bannerThree from '../../assets/banner-3.webp';
 import bannerFour from '../../assets/banner-4.webp';
 import bannerFive from '../../assets/banner-5.webp';
-import { AppleIcon, Backpack, BackpackIcon, BirdIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, DumbbellIcon, FootprintsIcon, Ghost, GhostIcon, RocketIcon, Shirt, ShirtIcon, ZapIcon } from 'lucide-react';
+import { AppleIcon, BackpackIcon, BirdIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, DumbbellIcon, FootprintsIcon, GhostIcon, RocketIcon, ShirtIcon, ZapIcon } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
