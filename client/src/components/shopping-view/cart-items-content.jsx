@@ -104,11 +104,11 @@ function UserCartItemsContent({ cartItem }) {
         </div>
       </div>
       <div className="flex flex-col items-end">
-        {/* Hiển thị giá trị số tiền theo VNĐ */}
+        {/* Hiển thị giá trị số tiền theo USD */}
         <p className="font-semibold">
-          {new Intl.NumberFormat("vi-VN", {
+          {new Intl.NumberFormat("en-US", {
             style: "currency",
-            currency: "VND",
+            currency: "USD",
           }).format(
             (cartItem?.salePrice > 0 ? cartItem?.salePrice : cartItem?.price) *
               cartItem?.quantity

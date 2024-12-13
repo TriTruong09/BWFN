@@ -17,7 +17,7 @@ function ShoppingCheckout() {
   const dispatch = useDispatch();
   const { toast } = useToast();
 
-  //console.log("CartItems State: ", cartItems);
+ // console.log("CartItems State: ", cartItems);
 
 
   
@@ -76,15 +76,17 @@ function ShoppingCheckout() {
         phone: currentSelectedAddress?.phone,
         notes: currentSelectedAddress?.notes,
       },
-      orderStatus: "pending",
+      orderStatus: "Đang chờ xử lí",
       paymentMethod: "paypal",
-      paymentStatus: "pending",
+      paymentStatus: "Đang chờ xử lí",
       totalAmount: totalCartAmount,
       orderDate: new Date(),
       orderUpdateDate: new Date(),
       paymentId: "",
       payerId: "",
     };
+
+    console.log(orderData)
 
     dispatch(createNewOrder(orderData)).then((data) => {
       console.log(data, "TriTruong");
@@ -128,7 +130,7 @@ function ShoppingCheckout() {
             <Button onClick={handleInitiatePaypalPayment} className="w-full">
               {isPaymentStart
                 ? "Processing Paypal Payment..."
-                : "Checkout with Paypal"}
+                : "Thanh toán"}
             </Button>
           </div>
         </div>

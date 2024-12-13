@@ -3,17 +3,16 @@ import { Button } from "../ui/button";
 import { brandOptionsMap, categoryOptionsMap } from "@/config";
 import { Badge } from "../ui/badge";
 
-
 function ShoppingProductTile({
   product,
   handleGetProductDetails,
   handleAddtoCart,
 }) {
-  // Hàm định dạng tiền VNĐ
+  // Hàm định dạng tiền USD
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat("vi-VN", {
+    return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "VND",
+      currency: "USD",
     }).format(value);
   };
 
@@ -28,7 +27,7 @@ function ShoppingProductTile({
           />
           {product?.totalStock === 0 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
-              Hết hàng
+              Out of Stock
             </Badge>
           ) : product?.totalStock < 10 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
@@ -76,7 +75,7 @@ function ShoppingProductTile({
             onClick={() => handleAddtoCart(product?._id, product?.totalStock)}
             className="w-full"
           >
-            Thêm vào giỏ hàng
+            Add to Cart
           </Button>
         )}
       </CardFooter>

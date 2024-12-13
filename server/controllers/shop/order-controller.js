@@ -36,12 +36,12 @@ const createOrder = async (req, res) => {
               name: item.title,
               sku: item.productId,
               price: item.price.toFixed(2),
-              currency: "VNĐ",
+              currency: "USD",
               quantity: item.quantity,
             })),
           },
           amount: {
-            currency: "VNĐ",
+            currency: "USD",
             total: totalAmount.toFixed(2),
           },
           description: "description",
@@ -108,8 +108,8 @@ const capturePayment = async (req, res) => {
       });
     }
 
-    order.paymentStatus = "paid";
-    order.orderStatus = "confirmed";
+    order.paymentStatus = "Đã thanh toán";
+    order.orderStatus = "Đã xác nhận";
     order.paymentId = paymentId;
     order.payerId = payerId;
 
