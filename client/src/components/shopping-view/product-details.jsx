@@ -14,7 +14,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     const {user} = useSelector(state=>state.auth);
     const {toast} = useToast();
 
-    function handleAddtoCart(getCurrentProductId, getTotalStock) {
+    function handleAddToCart(getCurrentProductId, getTotalStock) {
         console.log(getCurrentProductId, getTotalStock);
         dispatch(addToCart({
           userId : user.id, 
@@ -91,8 +91,22 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                         </div>
                         <span className="text-muted-foreground">(4.5)</span>
                     </div>
-                    <div className="mt-5">
-                        <Button className="w-full" conClick={()=>handleAddToCart(productDetails?._id)}>Thêm vào giỏ hàng</Button>
+                    <div className="mt-5 mb-5">
+                        {
+                            productDetails?.TotalStock === 0 ?
+
+                            <Button className="w-full opacity-60 cursor-not-allowed" 
+                        >
+                            Hết hàng
+                        </Button>:
+                        <Button 
+                            className="w-full" 
+                            conClick={()=>handleAddToCart(productDetails?._id)}
+                        >
+                            Thêm vào giỏ hàng
+                        </Button>
+                        }
+                        
                     </div>
                     <Separator />
                     <div className="max-h-[300px] overflow-auto">

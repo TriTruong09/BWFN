@@ -20,6 +20,8 @@ import { Label } from "../ui/label";
 function MenuItems(){
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     function handleNavigate(getCurrentMenuItem){
         sessionStorage.removeItem('filters')
@@ -34,7 +36,11 @@ function MenuItems(){
 
         sessionStorage.setItem('filters', JSON.stringify(currentFilter))
 
-        navigate(getCurrentMenuItem.path)
+        location.pathname.includes("listing") && currentFilter !== null
+      ? setSearchParams(
+          new URLSearchParams(`?category=${getCurrentMenuItem.id}`)
+        )
+      : navigate(getCurrentMenuItem.path);
 
     }
 

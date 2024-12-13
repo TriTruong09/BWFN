@@ -27,11 +27,11 @@ function ShoppingProductTile({
           />
           {product?.totalStock === 0 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
-              Out of Stock
+              Hết hàng
             </Badge>
           ) : product?.totalStock < 10 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
-              {`Only ${product?.totalStock} items left`}
+              {`Còn ${product?.totalStock} sản phẩm`}
             </Badge>
           ) : product?.salePrice > 0 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
@@ -68,14 +68,14 @@ function ShoppingProductTile({
       <CardFooter>
         {product?.totalStock === 0 ? (
           <Button className="w-full opacity-60 cursor-not-allowed">
-            Out Of Stock
+            Hết hàng
           </Button>
         ) : (
           <Button
             onClick={() => handleAddtoCart(product?._id, product?.totalStock)}
             className="w-full"
           >
-            Add to Cart
+            Thêm vào giỏi hàng
           </Button>
         )}
       </CardFooter>
