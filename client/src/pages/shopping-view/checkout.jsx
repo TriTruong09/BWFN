@@ -129,7 +129,7 @@ function ShoppingCheckout() {
           <div className="mt-4 w-full">
             <Button onClick={handleInitiatePaypalPayment} className="w-full">
               {isPaymentStart
-                ? "Processing Paypal Payment..."
+                ? "Xử lý thanh toán Paypal..."
                 : "Thanh toán"}
             </Button>
           </div>
