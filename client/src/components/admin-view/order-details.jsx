@@ -47,33 +47,33 @@ function AdminOrderDetailsView({ orderDetails }) {
       <div className="grid gap-6">
         <div className="grid gap-2">
           <div className="flex mt-6 items-center justify-between">
-            <p className="font-medium">Mã đơn hàng</p>
+            <p className="font-medium">Order ID</p>
             <Label>{orderDetails?._id}</Label>
           </div>
           <div className="flex mt-2 items-center justify-between">
-            <p className="font-medium">Ngày đặt hàng</p>
+            <p className="font-medium">Order Date</p>
             <Label>{orderDetails?.orderDate.split("T")[0]}</Label>
           </div>
           <div className="flex mt-2 items-center justify-between">
-            <p className="font-medium">Giá</p>
+            <p className="font-medium">Order Price</p>
             <Label>${orderDetails?.totalAmount}</Label>
           </div>
           <div className="flex mt-2 items-center justify-between">
-            <p className="font-medium">Phương thức thanh toán</p>
+            <p className="font-medium">Payment method</p>
             <Label>{orderDetails?.paymentMethod}</Label>
           </div>
           <div className="flex mt-2 items-center justify-between">
-            <p className="font-medium">Trạng thái thanh toán</p>
+            <p className="font-medium">Payment Status</p>
             <Label>{orderDetails?.paymentStatus}</Label>
           </div>
           <div className="flex mt-2 items-center justify-between">
-            <p className="font-medium">Trạng thái đơn hàng</p>
+            <p className="font-medium">Order Status</p>
             <Label>
               <Badge
                 className={`py-1 px-3 ${
-                  orderDetails?.orderStatus === "Đã giao hàng"
+                  orderDetails?.orderStatus === "Delivered"
                     ? "bg-green-500"
-                    : orderDetails?.orderStatus === "Đã bị huỷ"
+                    : orderDetails?.orderStatus === "Rejected"
                     ? "bg-red-600"
                     : "bg-black"
                 }`}
@@ -86,14 +86,14 @@ function AdminOrderDetailsView({ orderDetails }) {
         <Separator />
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <div className="font-medium">Chi tiết đơn hàng</div>
+            <div className="font-medium">Order Details</div>
             <ul className="grid gap-3">
               {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
                 ? orderDetails?.cartItems.map((item) => (
                     <li className="flex items-center justify-between">
-                      <span>Tên: {item.title}</span>
-                      <span>Số lượng: {item.quantity}</span>
-                      <span>Giá: ${item.price}</span>
+                      <span>Title: {item.title}</span>
+                      <span>Quantity: {item.quantity}</span>
+                      <span>Price: ${item.price}</span>
                     </li>
                   ))
                 : null}
@@ -102,14 +102,14 @@ function AdminOrderDetailsView({ orderDetails }) {
         </div>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <div className="font-medium">Thông tin vận chuyển</div>
+            <div className="font-medium">Shipping Info</div>
             <div className="grid gap-0.5 text-muted-foreground">
-              <span>Tên người nhận:  {user.userName}</span>
-              <span>Địa chỉ:  {orderDetails?.addressInfo?.address}</span>
-              <span>Thành phố:  {orderDetails?.addressInfo?.city}</span>
-              <span>Mã pin:  {orderDetails?.addressInfo?.pincode}</span>
-              <span>Số điện thoại:  {orderDetails?.addressInfo?.phone}</span>
-              <span>Ghi chú:  {orderDetails?.addressInfo?.notes}</span>
+              <span>Name: {user.userName}</span>
+              <span>Adress: {orderDetails?.addressInfo?.address}</span>
+              <span>City: {orderDetails?.addressInfo?.city}</span>
+              <span>Pincode: {orderDetails?.addressInfo?.pincode}</span>
+              <span>Phone number: {orderDetails?.addressInfo?.phone}</span>
+              <span>Notes: {orderDetails?.addressInfo?.notes}</span>
             </div>
           </div>
         </div>
@@ -122,17 +122,17 @@ function AdminOrderDetailsView({ orderDetails }) {
                 name: "status",
                 componentType: "select",
                 options: [
-                  { id: "Đang chờ xử lí", label: "Đang chờ xử lí" },
-                  { id: "Đang xử lí", label: "Đang xử lí" },
-                  { id: "Đang vận chuyển", label: "Đang vận chuyển" },
-                  { id: "Đã giao hàng", label: "Đã giao hàng" },
-                  { id: "Đã bị huỷ", label: "Đã bị huỷ" },
+                  { id: "Pending", label: "Pending" },
+                  { id: "InProcess", label: "In Process" },
+                  { id: "InShipping", label: "In Shipping" },
+                  { id: "Delivered", label: "Delivered" },
+                  { id: "Rejected", label: "Rejected" },
                 ],
               },
             ]}
             formData={formData}
             setFormData={setFormData}
-            buttonText={"Cập nhật trạng thái đơn hàng"}
+            buttonText={"Update Order Status"}
             onSubmit={handleUpdateStatus}
           />
         </div>

@@ -69,7 +69,7 @@ function ProductImageUpload({
     <div
       className={`w-full  mt-4 ${isCustomStyling ? "" : "max-w-md mx-auto"}`}
     >
-      <Label className="text-lg font-semibold mb-2 block">Tải ảnh lên</Label>
+      <Label className="text-lg font-semibold mb-2 block">Upload Image</Label>
       <div
         onDragOver={handleDragOver}
         onDrop={handleDrop}
@@ -93,7 +93,7 @@ function ProductImageUpload({
             } flex flex-col items-center justify-center h-32 cursor-pointer`}
           >
             <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
-            <span>Nhấn để tải hình ảnh lên</span>
+            <span>Click to upload image</span>
           </Label>
         ) : imageLoadingState ? (
           <Skeleton className="h-10 bg-gray-100" />

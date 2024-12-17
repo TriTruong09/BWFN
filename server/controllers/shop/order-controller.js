@@ -108,8 +108,8 @@ const capturePayment = async (req, res) => {
       });
     }
 
-    order.paymentStatus = "Đã thanh toán";
-    order.orderStatus = "Đã xác nhận";
+    order.paymentStatus = "Paid";
+    order.orderStatus = "Confirmed";
     order.paymentId = paymentId;
     order.payerId = payerId;
 

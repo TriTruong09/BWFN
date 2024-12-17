@@ -77,7 +77,7 @@ function ShoppingCheckout() {
         notes: currentSelectedAddress?.notes,
       },
       orderStatus: "Đang chờ xử lí",
-      paymentMethod: "paypal",
+      paymentMethod: "Paypal",
       paymentStatus: "Đang chờ xử lí",
       totalAmount: totalCartAmount,
       orderDate: new Date(),

@@ -86,7 +86,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
         setReviewMsg("");
         dispatch(getReviews(productDetails?._id));
         toast({
-          title: "Gửi đánh giá thành công!",
+          title: "Review added successfully!",
         });
       }
     });
@@ -148,7 +148,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           <div className="mt-5 mb-5">
             {productDetails?.totalStock === 0 ? (
               <Button className="w-full opacity-60 cursor-not-allowed">
-                Hết hàng
+                Out of Stock
               </Button>
             ) : (
               <Button
@@ -160,13 +160,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                   )
                 }
               >
-                Thêm vào giỏ hàng
+                Add to cart
               </Button>
             )}
           </div>
           <Separator />
           <div className="max-h-[300px] overflow-auto">
-            <h2 className="text-xl font-bold mb-4">Đánh giá</h2>
+            <h2 className="text-xl font-bold mb-4">Reviews</h2>
             <div className="grid gap-6">
               {reviews && reviews.length > 0 ? (
                 reviews.map((reviewItem) => (
@@ -190,11 +190,11 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                   </div>
                 ))
               ) : (
-                <h1>Chưa có đánh giá</h1>
+                <h1>No Reviews</h1>
               )}
             </div>
             <div className="mt-10 flex-col flex gap-2">
-              <Label>Để lại đánh giá của bạn....</Label>
+              <Label>Write a review....</Label>
               <div className="flex gap-1">
                 <StarRatingComponent
                   rating={rating}
@@ -205,13 +205,13 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
                 name="reviewMsg"
                 value={reviewMsg}
                 onChange={(event) => setReviewMsg(event.target.value)}
-                placeholder="Viết đánh giá..."
+                placeholder="Write a review..."
               />
               <Button
                 onClick={handleAddReview}
                 disabled={reviewMsg.trim() === ""}
               >
-                Gửi đánh giá
+                Submit
               </Button>
             </div>
           </div>

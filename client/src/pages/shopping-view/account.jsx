@@ -18,8 +18,8 @@ function ShoppingAccount() {
         <div className="flex flex-col rounded-lg border bg-background p-6 shadow-sm">
           <Tabs defaultValue="orders">
             <TabsList>
-              <TabsTrigger value="orders">Đơn hàng</TabsTrigger>
-              <TabsTrigger value="address">Địa chỉ</TabsTrigger>
+              <TabsTrigger value="orders">Order</TabsTrigger>
+              <TabsTrigger value="address">Address</TabsTrigger>
             </TabsList>
             <TabsContent value="orders">
               <ShoppingOrders/>

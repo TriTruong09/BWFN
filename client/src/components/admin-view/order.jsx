@@ -41,16 +41,16 @@ function AdminOrdersView() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Tất cả đơn hàng</CardTitle>
+        <CardTitle>All Orders</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Mã đơn hàng</TableHead>
-              <TableHead>Ngày đặt hàng</TableHead>
-              <TableHead>Trạng thái đơn hàng</TableHead>
-              <TableHead>Giá</TableHead>
+              <TableHead>Order ID</TableHead>
+              <TableHead>Order Date</TableHead>
+              <TableHead>Order Status</TableHead>
+              <TableHead>Order Price</TableHead>
               <TableHead>
                 <span className="sr-only">Details</span>
               </TableHead>
@@ -65,9 +65,9 @@ function AdminOrdersView() {
                     <TableCell>
                       <Badge
                         className={`py-1 px-3 ${
-                          orderItem?.orderStatus === "Đã xác nhận"
+                          orderItem?.orderStatus === "Delivered"
                             ? "bg-green-500"
-                            : orderItem?.orderStatus === "Đã bị huỷ"
+                            : orderItem?.orderStatus === "Rejected"
                             ? "bg-red-600"
                             : "bg-black"
                         }`}
@@ -89,7 +89,7 @@ function AdminOrdersView() {
                             handleFetchOrderDetails(orderItem?._id)
                           }
                         >
-                          Xem chi tiết đơn hàng
+                          View Details
                         </Button>
                         <AdminOrderDetailsView orderDetails={orderDetails} />
                       </Dialog>
