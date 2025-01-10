@@ -173,7 +173,7 @@ export const loginFormControls = [
     ],
     "brand": [
       { id: "yonex", label: "Yonex" },
-      { id: "linning", label: "Lining" },
+      { id: "lining", label: "Lining" },
       { id: "mizuno", label: "Mizuno" },
       { id: "victor", label: "Victor" },
       { id: "kamito", label: "Kamito" },

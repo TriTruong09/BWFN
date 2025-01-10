@@ -37,7 +37,7 @@ const categoriesWithIcon = [
 
 const brandsWithIcon = [
     { id: "yonex", label: "Yonex",icon: AppleIcon },
-    { id: "linning", label: "Lining",icon: ZapIcon },
+    { id: "lining", label: "Lining",icon: ZapIcon },
     { id: "mizuno", label: "Mizuno", icon: BirdIcon },
     { id: "victor", label: "Victor" , icon: ChevronDownIcon },
     { id: "kamito", label: "Kamito" , icon: RocketIcon },
